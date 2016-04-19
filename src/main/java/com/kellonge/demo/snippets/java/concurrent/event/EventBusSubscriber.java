@@ -4,6 +4,12 @@ import java.util.Date;
 
 import com.google.common.eventbus.Subscribe;
 
+/**
+ * 
+ * 
+ * @author kellonge
+ * @version $Id: EventBusSubscriber.java, v 0.1 2016年4月19日 下午1:47:56 kellonge Exp $
+ */
 public class EventBusSubscriber {
 
 	@Subscribe

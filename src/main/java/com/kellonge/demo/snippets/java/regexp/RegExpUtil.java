@@ -2,6 +2,12 @@ package com.kellonge.demo.snippets.java.regexp;
 
 import java.util.regex.Pattern;
 
+/**
+ * 正则表达式工具类
+ * 
+ * @author kellonge
+ * @version $Id: RegExpUtil.java, v 0.1 2016年4月19日 下午1:38:49 kellonge Exp $
+ */
 public class RegExpUtil {
 
     /**

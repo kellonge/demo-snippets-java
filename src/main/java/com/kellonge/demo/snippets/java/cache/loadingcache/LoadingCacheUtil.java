@@ -12,8 +12,20 @@ import com.google.common.cache.CacheBuilder;
 import com.google.common.cache.CacheLoader;
 import com.google.common.cache.LoadingCache;
 
+/**
+ * google LoadingCache 工具类
+ * 未完成
+ * 
+ * @author kellonge
+ * @version $Id: LoadingCacheUtil.java, v 0.1 2016年4月19日 下午1:40:13 kellonge Exp $
+ */
 public class LoadingCacheUtil {
+
     private static LoadingCache<String, Object> cache;
+    /**
+     * 缓存本地持久化地址
+     */
+    private static String                       tmpDataPath = "/Users/kellonge/Work/workspace_my/snippets/file/LoadingCacheData.json";
     static {
         cache = CacheBuilder.newBuilder().expireAfterWrite(3, TimeUnit.SECONDS)
             .build(new CacheLoader<String, Object>() {
@@ -43,13 +55,12 @@ public class LoadingCacheUtil {
         } catch (InterruptedException e1) {
             e1.printStackTrace();
         }
-        File file = new File("/Users/kellonge/Work/workspace_my/snippets/file/LoadingCacheData.json");
+        File file = new File(tmpDataPath);
         String data = "";
         BufferedReader reader = null;
         try {
             reader = new BufferedReader(new FileReader(file));
             String tmp = null;
-
             while ((tmp = reader.readLine()) != null) {
                 data += tmp;
             }
