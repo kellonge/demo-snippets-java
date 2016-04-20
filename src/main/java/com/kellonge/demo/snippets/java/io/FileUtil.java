@@ -4,18 +4,18 @@ import java.io.BufferedInputStream;
 import java.io.BufferedOutputStream;
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
-import java.io.ByteArrayInputStream;
 import java.io.ByteArrayOutputStream;
-import java.io.DataOutputStream;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileOutputStream;
-import java.io.FileReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
 import java.io.OutputStreamWriter;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.Paths;
 
 /**
  * 文件操作工具类
@@ -195,5 +195,37 @@ public class FileUtil {
             }
         }
         return null;
+    }
+
+    /**
+     * 写入字节数组到指定路径的文件,使用NIO的封装方法
+     * 
+     * @param path
+     * @param data
+     * @return
+     */
+    public static boolean writeByteUseNIO(String path, byte[] data) {
+        try {
+            Files.write(Paths.get(path), data);
+            return true;
+        } catch (IOException e) {
+            e.printStackTrace();
+            return false;
+        }
+    }
+
+    /**
+     * 从指定路径的文件中读取字节数组,使用NIO的封装方法
+     * 
+     * @param path
+     * @return
+     */
+    public static byte[] readByteUseNIO(String path) {
+        try {
+            return Files.readAllBytes(Paths.get(path));
+        } catch (IOException e) {
+            e.printStackTrace();
+            return new byte[0];
+        }
     }
 }

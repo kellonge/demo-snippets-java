@@ -10,7 +10,7 @@ public class FileMain {
     private static String path = "/Users/kellonge/Work/tmp/";
 
     public static void main(String[] args) {
-        testObjectReadAndWrite();
+        testByteReadAndWrite();
     }
 
     private static void testObjectReadAndWrite() {
@@ -25,6 +25,9 @@ public class FileMain {
     private static void testByteReadAndWrite() {
         FileUtil.writeByte(path + "4.data", "ssw是的范德萨".getBytes());
         System.out.println(new String(FileUtil.readByte(path + "4.data")));
+
+        FileUtil.writeByteUseNIO(path + "4.data", "ssw是的范德萨".getBytes());
+        System.out.println(new String(FileUtil.readByteUseNIO(path + "4.data")));
     }
 
     private static void testStrReadAndWrite() {
