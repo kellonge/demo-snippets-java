@@ -1,4 +1,4 @@
-package com.kellonge.demo.snippets.java.cache.loadingcache;
+package com.kellonge.demo.snippets.java.guava.loadingcache;
 
 import java.io.BufferedReader;
 import java.io.File;

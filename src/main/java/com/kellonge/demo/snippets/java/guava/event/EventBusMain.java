@@ -1,4 +1,4 @@
-package com.kellonge.demo.snippets.java.concurrent.event;
+package com.kellonge.demo.snippets.java.guava.event;
 
 public class EventBusMain {
 	public static void main(String[] args) {

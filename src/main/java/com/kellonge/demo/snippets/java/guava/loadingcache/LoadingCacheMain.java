@@ -1,4 +1,4 @@
-package com.kellonge.demo.snippets.java.cache.loadingcache;
+package com.kellonge.demo.snippets.java.guava.loadingcache;
 
 public class LoadingCacheMain {
     public static void main(String[] args) throws InterruptedException {
