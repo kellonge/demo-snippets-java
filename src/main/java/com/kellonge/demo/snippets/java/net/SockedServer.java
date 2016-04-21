@@ -18,6 +18,7 @@ public class SockedServer {
                 System.out
                     .println("coming new client " + socket.getInetAddress().getHostAddress() + ":" + socket.getPort());
                 printInputData(socket.getInputStream());
+                socket.close();
             }
         } catch (IOException e) {
             e.printStackTrace();
@@ -25,7 +26,6 @@ public class SockedServer {
     }
 
     private static void printInputData(InputStream stream) {
-
         try {
             int tmp = 0;
             while ((tmp = stream.read()) != -1) {
