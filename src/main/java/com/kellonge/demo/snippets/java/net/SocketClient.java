@@ -15,8 +15,7 @@ public class SocketClient {
             OutputStream outputStream = socket.getOutputStream();
             outputStream.write(String.valueOf(new Date().getTime()).getBytes());
             outputStream.flush();
-            outputStream.close();
-            socket.close();
+            System.in.read();
         } catch (Exception e) {
             e.printStackTrace();
         }
