@@ -1,5 +1,6 @@
 package com.kellonge.demo.snippets.java.regexp;
 
+import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 /**
@@ -19,5 +20,20 @@ public class RegExpUtil {
      */
     public static boolean test(String exp, String val) {
         return Pattern.compile(exp).matcher(val).matches();
+    }
+
+    /**
+     * 找到正则匹配的值
+     * 
+     * @param exp 正则表达式
+     * @param val 被查询的值
+     * @return
+     */
+    public static String matchVal(String exp, String val) {
+        Matcher matcher = Pattern.compile(exp).matcher(val);
+        while (matcher.find()) {
+            return matcher.group();
+        }
+        return "";
     }
 }
