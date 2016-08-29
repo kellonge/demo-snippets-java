@@ -7,9 +7,9 @@ import java.util.Date;
  * 常用类型转换工具类
  * 
  * @author kellonge
- * @version $Id: ConvertUtil.java, v 0.1 2016年4月19日 上午11:46:16 kellonge Exp $
+ * @version $Id: ConvertUtils.java, v 0.1 2016年4月19日 上午11:46:16 kellonge Exp $
  */
-public class ConvertUtil {
+public class ConvertUtils {
 
     /**
      * 检查参数是否是int类型
