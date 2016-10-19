@@ -1,14 +1,13 @@
 package com.kellonge.demo.snippets.java.jdk8.stream;
 
-import com.alibaba.fastjson.JSON;
-import com.google.common.collect.Lists;
-
-import java.util.Comparator;
 import java.util.List;
 import java.util.Random;
 import java.util.concurrent.ThreadLocalRandom;
-import java.util.stream.Collector;
 import java.util.stream.Collectors;
+
+import com.alibaba.fastjson.JSON;
+import com.google.common.collect.Lists;
+import com.kellonge.demo.snippets.java.utils.ThreadTimer;
 
 /**
  * Created by kellonge on 16/10/19.
@@ -19,17 +18,18 @@ public class SortObject {
         //gen list
         List<User> users = Lists.newArrayList();
         Random rand = new Random();
-        for (int i = 0; i < 100; i++) {
+        for (int i = 0; i < 100000; i++) {
             users.add(new User(i + 1, random(5), rand.nextInt(119) + 1));
         }
         //show gen list
-        System.out.println(JSON.toJSONString(users));
+        System.out.println("print first 10:" + JSON.toJSONString(users.subList(0, 10)));
         //sort
-        List<User> usersSorted = users.stream()
-                .sorted((x, y) -> Integer.compare(y.age, x.age))
-                .collect(Collectors.toList());
+        ThreadTimer.start();
+        List<User> usersSorted = users.stream().sorted((x, y) -> Integer.compare(y.age, x.age))
+            .collect(Collectors.toList());
+        System.out.println("cost:" + ThreadTimer.end() + "ms");
         //show after sort
-        System.out.println(JSON.toJSONString(usersSorted));
+        System.out.println("print first 10:" + JSON.toJSONString(usersSorted.subList(0, 10)));
     }
 
     /**
